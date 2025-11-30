@@ -252,7 +252,7 @@ var result = envelope1.Map(
 ### PackageReference
 ```xml
 <ItemGroup>
-    <PackageReference Include="Sorry.SourceGens" Version="1.0.0" />
+    <PackageReference Include="Sorry.SourceGens" Version="1.0.1" />
 </ItemGroup>
 ```
 
