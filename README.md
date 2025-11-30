@@ -135,16 +135,16 @@ The source generator will automatically generate:
 
 ## Features
 
-- ✅ Supports multiple variants (2 or more)
-- ✅ Automatic factory method generation
-- ✅ Smart implicit operator support (skipped for duplicate types)
-- ✅ Functional pattern matching with `Map<T>`
-- ✅ Action-based pattern matching with `Match`
-- ✅ Default case overloads for `Map<T>` and `Match`
-- ✅ Optional parameter support for partial case handling
-- ✅ Proper exception handling for invalid states
-- ✅ Nullable reference type annotations
-- ✅ Respects existing constructors (won't duplicate if you provide your own)
+- Supports multiple variants (2 or more)
+- Automatic factory method generation
+- Smart implicit operator support (skipped for duplicate types)
+- Functional pattern matching with `Map<T>`
+- Action-based pattern matching with `Match`
+- Default case overloads for `Map<T>` and `Match`
+- Optional parameter support for partial case handling
+- Proper exception handling for invalid states
+- Nullable reference type annotations
+- Respects existing constructors (won't duplicate if you provide your own)
 
 ## Examples
 
