@@ -1,6 +1,6 @@
+<?xml version="1.0"?>
 <Project>
   <ItemGroup>
-    <Analyzer Include="$(MSBuildThisFileDirectory)../analyzers/dotnet/cs/Sorry.SourceGens.dll" />
-    <PackageReference Include="Sorry.SourceGens.Attributes" Version="1.0.0" />
+    <Analyzer Include="$(MSBuildThisFileDirectory)../analyzers/dotnet/cs/Sorry.SourceGens.dll"/>
   </ItemGroup>
 </Project>
