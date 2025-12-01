@@ -6,19 +6,23 @@ ATTRIBUTES_PROJECT_NAME = Sorry.SourceGens.Attributes
 PROJECT_PATH = $(PROJECT_NAME)/$(PROJECT_NAME).csproj
 ATTRIBUTES_PROJECT_PATH = $(ATTRIBUTES_PROJECT_NAME)/$(ATTRIBUTES_PROJECT_NAME).csproj
 VERSION ?= 1.0.0
+CONFIGURATION ?= Release
+
+clean:
+	@dotnet clean
 
 build:
-	@dotnet restore
-	@dotnet build --no-restore --configuration Release
+	@dotnet build $(PROJECT_PATH) --configuration $(CONFIGURATION)
+	@dotnet build --configuration $(CONFIGURATION)
 
 test: build
-	@dotnet test --no-build --configuration Release --verbosity normal
+	@dotnet test --configuration $(CONFIGURATION) --verbosity normal
 
 pack-attributes:
-	@dotnet pack $(ATTRIBUTES_PROJECT_PATH) --no-build -c Release -p:PackageVersion=$(VERSION)
+	@dotnet pack $(ATTRIBUTES_PROJECT_PATH) -c Release -p:PackageVersion=$(VERSION)
 
 pack-sourcegen: pack-attributes
-	@dotnet pack $(PROJECT_PATH) --no-build -c Release -p:PackageVersion=$(VERSION)
+	@dotnet pack $(PROJECT_PATH) -c Release -p:PackageVersion=$(VERSION)
 
 publish: test pack-sourcegen pack-attributes
 	@dotnet nuget push $(ATTRIBUTES_PROJECT_NAME)/bin/Release/$(ATTRIBUTES_PROJECT_NAME).$(VERSION).nupkg \
