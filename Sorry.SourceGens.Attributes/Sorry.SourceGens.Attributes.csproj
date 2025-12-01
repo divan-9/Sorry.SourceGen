@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageId>Sorry.SourceGens.Attributes</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>divan-9</Authors>
+    <Description>Attributes for Sorry.SourceGens - A source generator for OneOf pattern implementation</Description>
+    <PackageProjectUrl>https://github.com/divan-9/Sorry.SourceGen</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/divan-9/Sorry.SourceGen</RepositoryUrl>
+    <PackageTags>source-generator;oneof;discriminated-union;csharp;attributes</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>

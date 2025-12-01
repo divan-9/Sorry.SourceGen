@@ -111,7 +111,9 @@ public class EventEnvelope
 You can simply write:
 
 ```csharp
-[Sorry.SourceGens.OneOf]
++using Sorry.SourceGens;
+
+[OneOf]
 public partial class EventEnvelope
 {
     private readonly Created? created;
@@ -121,9 +123,10 @@ public partial class EventEnvelope
 
 ## Usage
 
-1. Mark your class with the `[Sorry.SourceGens.OneOf]` attribute
-2. Make the class `partial`
-3. Add private readonly nullable fields for each variant
+1. Add `using Sorry.SourceGens;` to your file
+2. Mark your class with the `[OneOf]` attribute
+3. Make the class `partial`
+4. Add private readonly nullable fields for each variant
 
 The source generator will automatically generate:
 - Private constructor
@@ -151,10 +154,12 @@ The source generator will automatically generate:
 ### Basic Two-Variant OneOf
 
 ```csharp
+using Sorry.SourceGens;
+
 public record Created(string Id, string Name);
 public record Updated(string Id, string Name, DateTime UpdatedAt);
 
-[Sorry.SourceGens.OneOf]
+[OneOf]
 public partial class EventEnvelope
 {
     private readonly Created? created;
@@ -180,11 +185,13 @@ envelope.Match(
 ### Three-Variant OneOf
 
 ```csharp
+using Sorry.SourceGens;
+
 public record Created(string Id, string Name);
 public record Updated(string Id, string Name, DateTime UpdatedAt);
 public record Deleted(string Id);
 
-[Sorry.SourceGens.OneOf]
+[OneOf]
 public partial class ExtendedEventEnvelope
 {
     private readonly Created? created;
@@ -228,7 +235,9 @@ envelope.Match(
 When multiple fields have the same type, implicit operators are automatically skipped to prevent compilation errors:
 
 ```csharp
-[Sorry.SourceGens.OneOf]
+using Sorry.SourceGens;
+
+[OneOf]
 public partial class DuplicateTypeEnvelope
 {
     private readonly string? firstMessage;
@@ -249,11 +258,28 @@ var result = envelope1.Map(
 
 ## Installation
 
-### PackageReference
+### Using the Source Generator
+To use the source generator in your project, you need both packages:
+
 ```xml
 <ItemGroup>
+    <PackageReference Include="Sorry.SourceGens.Attributes" Version="1.0.1" />
     <PackageReference Include="Sorry.SourceGens" Version="1.0.1" />
 </ItemGroup>
+```
+
+The `Sorry.SourceGens.Attributes` package contains the `OneOfAttribute` that you'll use to mark your classes, while `Sorry.SourceGens` contains the actual source generator.
+
+### Package Manager Console
+```
+Install-Package Sorry.SourceGens.Attributes
+Install-Package Sorry.SourceGens
+```
+
+### .NET CLI
+```bash
+dotnet add package Sorry.SourceGens.Attributes
+dotnet add package Sorry.SourceGens
 ```
 
 ## License

@@ -279,13 +279,13 @@ public class OneOfGenerator : ISourceGenerator
 
     private class FieldInfo
     {
-        public string Name { get; }
-        public string TypeName { get; }
-        
         public FieldInfo(string name, string typeName)
         {
             Name = name;
             TypeName = typeName;
         }
+
+        public string Name { get; }
+        public string TypeName { get; }
     }
 }
