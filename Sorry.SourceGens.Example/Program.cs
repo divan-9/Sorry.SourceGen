@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using Sorry.SourceGens;
 
 // Define event types

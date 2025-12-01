@@ -85,6 +85,7 @@ public class OneOfGenerator : ISourceGenerator
 
         var result = new StringBuilder();
         result.AppendLine("#nullable enable");
+        result.AppendLine("using System;");
 
         if (!string.IsNullOrEmpty(namespaceName))
         {
